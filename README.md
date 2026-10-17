@@ -1,6 +1,9 @@
 # kumbara-web
 
-Kumbara uygulamasının internetten okuduğu kira artış oranı tablosu (`rent-index.json`).
+Kumbara uygulamasının internetten okuduğu dosyalar:
+
+- `rent-index.json`: kira artış oranı tablosu (her ay otomatik güncellenir, aşağıya bak).
+- `legal.json`: mevduat stopaj oranları ve Ramazan/Kurban Bayramı günleri (elle güncellenir, aşağıya bak).
 
 Her ay TÜİK enflasyonu açıkladıktan sonra GitHub Actions, TCMB EVDS'den TÜFE endeksini çeker,
 yasal azami kira artışını (TÜFE'nin 12 aylık ortalamalara göre değişimi) hesaplar ve dosyayı günceller.
@@ -28,6 +31,17 @@ Bundan sonra iş akışı her ayın 3–8'i arasında kendiliğinden çalışır
 
 İş akışı bir ay çalışmazsa `rent-index.json` dosyasını GitHub web sitesinde (telefondan da olur) düzenleyip
 yeni ayı ekleyebilirsin. `month` alanı **kira yenileme ayıdır**: Eylül enflasyonuyla hesaplanan oran `"2026-10"` satırına yazılır.
+
+## legal.json (elle)
+
+Uygulama bu dosyayı günde en fazla iki kez indirir; bozuk ya da mantıksız bir dosya gelirse (oran %0–50 dışında,
+gün sınırları sıralı değil) eskisini kullanmaya devam eder.
+
+- **Stopaj değişince** (Cumhurbaşkanı Kararı): `depositWithholding` satırlarını güncelle. `upToDays` vadenin üst sınırı
+  (gün), son satırda `null`. Örnek: 6 aya kadar `184`, 1 yıla kadar `366`.
+- **Her yıl Diyanet takvimi açıklanınca**: `religiousHolidays` altına yeni yılı `"AA-GG"` biçiminde ekle
+  (arife yarım gün olduğu için yazılmaz). Vergi son günü bu günlere denk gelirse ertesi iş gününe kayar.
+- Değişiklikten sonra `updatedAt` tarihini de güncelle.
 
 ## Yerel test
 
