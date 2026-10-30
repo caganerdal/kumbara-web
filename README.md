@@ -4,6 +4,8 @@ Kumbara uygulamasının internetten okuduğu dosyalar:
 
 - `rent-index.json`: kira artış oranı tablosu (her ay otomatik güncellenir, aşağıya bak).
 - `legal.json`: mevduat stopaj oranları ve Ramazan/Kurban Bayramı günleri (elle güncellenir, aşağıya bak).
+- `gizlilik.html`: gizlilik politikası; App Store / Play Console'a ve uygulamaya bu adres verilir:
+  https://caganerdal.github.io/kumbara-web/gizlilik.html (yayınlamadan önce `ILETISIM_EPOSTASI` yerine iletişim adresini yaz).
 
 Her ay TÜİK enflasyonu açıkladıktan sonra GitHub Actions, TCMB EVDS'den TÜFE endeksini çeker,
 yasal azami kira artışını (TÜFE'nin 12 aylık ortalamalara göre değişimi) hesaplar ve dosyayı günceller.
