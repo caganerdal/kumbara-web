@@ -1,6 +1,6 @@
 {
   "source": "TÜİK TÜFE (2025=100), 12 aylık ortalamalara göre değişim. 'month' = kira yenileme ayı.",
-  "updatedAt": "2026-10-07",
+  "updatedAt": "2026-11-19",
   "rates": [
     {
       "month": "2025-11",
@@ -49,6 +49,10 @@
     {
       "month": "2026-10",
       "rate": 0.3149
+    },
+    {
+      "month": "2026-11",
+      "rate": 0.3123
     }
   ]
 }
